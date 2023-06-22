@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   id: cfg-buckets-torg
-  regionOrZone: "us-west-2"
+  placement: "us-west-2"
   compositionSelector:
     matchLabels:
       cloud: aws

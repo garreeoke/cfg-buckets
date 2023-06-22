@@ -1,0 +1,41 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: azure.cloudbuckets.cfg.upbound.io
+  labels:
+    cloud: azure
+spec:
+  writeConnectionSecretsToNamespace: default
+  compositeTypeRef:
+    apiVersion: cfg.upbound.io/v1alpha1
+    kind: XCloudBucket
+  resources:
+    - base:
+        apiVersion: storage.azure.upbound.io/v1beta1
+        kind: Account
+        spec:
+          forProvider:
+            accountReplicationType: LRS
+        name: storageAccount
+        patches:
+          - fromFieldPath: spec.other
+            toFieldPath: spec.forProvider.resourceGroupName
+          - fromFieldPath: spec.placement
+            toFieldPath: spec.forProvider.location
+          - fromFieldPath: spec.id
+            toFieldPath: metadata.name
+          - fromFieldPath: spec.id
+            toFieldPath: spec.forProvider.tags.Name
+    #- base:
+    #    apiVersion: storage.azure.upbound.io/v1beta1
+    #    kind: Blob
+    #    spec:
+    #      deletionPolicy: Delete
+    #  name: azureBlob
+    #  patches:
+    #    - fromFieldPath: spec.id
+    #      toFieldPath: metadata.name
+    #    - fromFieldPath: spec.id
+    #      toFieldPath: spec.forProvider.tags.Name
+    #    - fromFieldPath: spec.id
+    #      toFieldPath: spec.forProvider.storageAccountName

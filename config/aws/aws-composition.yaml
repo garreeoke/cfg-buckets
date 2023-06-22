@@ -17,7 +17,7 @@ spec:
           deletionPolicy: Delete
       name: s3bucket
       patches:
-        - fromFieldPath: spec.regionOrZone
+        - fromFieldPath: spec.placement
           toFieldPath: spec.forProvider.region
         - fromFieldPath: spec.id
           toFieldPath: metadata.name

@@ -22,18 +22,15 @@ spec:
             spec:
               type: object
               properties:
-                #cloud:
-                #  type: string
-                #  enum:
-                #    - aws
-                #    - azure
-                #    - google
                 id:
                   type: string
                   description: "id"
-                regionOrZone:
+                placement:
                   type: string
-                  description: Region or zone of the bucket if required
+                  description: "Depending on cloud it will be either a region, a resource group or ..."
+                other:
+                  type: string
+                  description: "Another parameter such as resource group or something else needed"
                 compositionSelector:
                   type: object
                   properties:
@@ -53,5 +50,5 @@ spec:
                     - matchLabels
               required:
                 - id
-                - regionOrZone
+                - placement
                 - compositionSelector
