@@ -1,0 +1,57 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xcloudbuckets.cfg.upbound.io
+spec:
+  group: cfg.upbound.io
+  names:
+    kind: XCloudBucket
+    plural: xcloudbuckets
+  claimNames:
+    kind: CloudBucket
+    plural: cloudbuckets
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          description: "Create generic cloud bucket and policy for the desired cloud"
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                #cloud:
+                #  type: string
+                #  enum:
+                #    - aws
+                #    - azure
+                #    - google
+                id:
+                  type: string
+                  description: "id"
+                regionOrZone:
+                  type: string
+                  description: Region or zone of the bucket if required
+                compositionSelector:
+                  type: object
+                  properties:
+                    matchLabels:
+                      type: object
+                      properties:
+                        cloud:
+                          type: string
+                          description:
+                          enum:
+                            - aws
+                            - azure
+                            - google
+                      required:
+                        - cloud
+                  required:
+                    - matchLabels
+              required:
+                - id
+                - regionOrZone
+                - compositionSelector

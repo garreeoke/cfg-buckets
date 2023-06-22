@@ -1,0 +1,11 @@
+apiVersion: cfg.upbound.io/v1alpha1
+kind: CloudBucket
+metadata:
+  name: cfg-buckets-torg
+  namespace: default
+spec:
+  id: cfg-buckets-torg
+  regionOrZone: "us-west-2"
+  compositionSelector:
+    matchLabels:
+      cloud: aws
