@@ -1,10 +1,10 @@
 apiVersion: cfg.upbound.io/v1alpha1
 kind: CloudBucket
 metadata:
-  name: cfg-buckets-torg
+  name: cfg-buckets-s3-torg
   namespace: default
 spec:
-  id: cfg-buckets-torg
+  id: cfg-buckets-s3-torg
   placement: "us-west-2"
   compositionSelector:
     matchLabels:

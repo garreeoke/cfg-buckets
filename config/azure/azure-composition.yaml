@@ -16,7 +16,7 @@ spec:
         spec:
           forProvider:
             accountReplicationType: LRS
-            accountTier: standard
+            accountTier: Standard
             location: "West US 3"
             resourceGroupName: "None"
         name: storageAccount
