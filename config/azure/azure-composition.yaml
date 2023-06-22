@@ -17,6 +17,7 @@ spec:
           forProvider:
             accountReplicationType: LRS
             accountTier: standard
+            location: "West US 3"
         name: storageAccount
         patches:
           - fromFieldPath: spec.other
