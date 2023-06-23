@@ -23,7 +23,7 @@ spec:
           toFieldPath: spec.forProvider.resourceGroupName
         - fromFieldPath: spec.placement
           toFieldPath: spec.forProvider.location
-        - fromFieldPath: spec.id
+        - fromFieldPath: spec.other
           toFieldPath: metadata.name
           #transforms:
           #  - type: string
