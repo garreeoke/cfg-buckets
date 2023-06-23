@@ -1,0 +1,10 @@
+apiVersion: storage.gcp.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: torg-sb1
+spec:
+  forProvider:
+    storageClass: STANDARD
+    location: US
+    labels:
+      name: torg-sb1

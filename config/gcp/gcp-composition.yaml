@@ -23,7 +23,7 @@ spec:
         - fromFieldPath: spec.id
           toFieldPath: metadata.name
         - fromFieldPath: spec.id
-          toFieldPath: spec.forProvider.labels.Name
+          toFieldPath: spec.forProvider.labels.name
     - base:
         apiVersion: storage.gcp.upbound.io/v1beta1
         kind: BucketAccessControl
