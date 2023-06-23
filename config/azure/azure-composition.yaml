@@ -13,6 +13,8 @@ spec:
     - base:
         apiVersion: storage.azure.upbound.io/v1beta1
         kind: Account
+        metadata:
+          name: "None"
         spec:
           forProvider:
             accountReplicationType: LRS
@@ -29,8 +31,6 @@ spec:
             toFieldPath: metadata.name
           - fromFieldPath: spec.id
             toFieldPath: spec.forProvider.tags.Name
-          - fromFieldPath: spec.id
-            toFieldPath: metadata.annotations["crossplane.io/external-name"]
     #- base:
     #    apiVersion: storage.azure.upbound.io/v1beta1
     #    kind: Blob
