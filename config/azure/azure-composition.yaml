@@ -13,14 +13,10 @@ spec:
     - base:
         apiVersion: storage.azure.upbound.io/v1beta1
         kind: Account
-        metadata:
-          name: "update"
         spec:
           forProvider:
             accountReplicationType: LRS
             accountTier: Standard
-            location: "West US 3"
-            resourceGroupName: "none"
       name: storageAccount
       patches:
         - fromFieldPath: spec.other
