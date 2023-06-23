@@ -4,7 +4,7 @@ metadata:
   name: cfg-buckets-blob-torg
   namespace: default
 spec:
-  id: cfg-buckets-blob-torg
+  id: cfgbucketsblobtorg #no dashes for the storage account
   placement: "West US 3"
   other: torg-rg1
   compositionSelector:
