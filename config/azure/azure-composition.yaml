@@ -23,7 +23,7 @@ spec:
           toFieldPath: spec.forProvider.resourceGroupName
         - fromFieldPath: spec.placement
           toFieldPath: spec.forProvider.location
-        - fromFieldPath: spec.other
+        - fromFieldPath: spec.id
           toFieldPath: metadata.name
           #transforms:
           #  - type: string
@@ -31,7 +31,7 @@ spec:
           #      type: Regexp
           #      regexp:
           #        match: '(/[^a-zA-Z0-9 ]/g, "")'
-        - fromFieldPath: spec.id
+        - fromFieldPath: spec.other
           toFieldPath: metadata.labels.regexp
           transforms:
             - type: string
