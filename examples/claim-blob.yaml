@@ -1,10 +1,10 @@
 apiVersion: cfg.upbound.io/v1alpha1
 kind: CloudBucket
 metadata:
-  name: torgstorageacc1
+  name: cfg-buckets-blob-torg
   namespace: default
 spec:
-  id: torgstorageacc1
+  id: cfg-buckets-blob-torg
   placement: "West US 3"
   other: torg-rg1
   compositionSelector:
