@@ -25,12 +25,12 @@ spec:
           toFieldPath: spec.forProvider.location
         - fromFieldPath: spec.id
           toFieldPath: metadata.name
-          transforms:
-            - type: string
-              string:
-                type: Regexp
-                regexp:
-                  match: '(/[^a-zA-Z0-9 ]/g, "")'
+          #transforms:
+          #  - type: string
+          #    string:
+          #      type: Regexp
+          #      regexp:
+          #        match: '(/[^a-zA-Z0-9 ]/g, "")'
         - fromFieldPath: spec.id
           toFieldPath: spec.forProvider.tags.Name
     - base:
