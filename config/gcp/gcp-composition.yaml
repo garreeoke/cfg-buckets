@@ -26,7 +26,7 @@ spec:
           toFieldPath: spec.forProvider.labels.Name
     - base:
         apiVersion: storage.gcp.upbound.io/v1beta1
-        kind: BucketAccesscontrol
+        kind: BucketAccessControl
         spec:
           forProvider:
             role: READER
