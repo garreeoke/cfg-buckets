@@ -14,24 +14,25 @@ spec:
         apiVersion: storage.azure.upbound.io/v1beta1
         kind: Account
         metadata:
-          name: "none"
-          #annotations:
+          name: "torgstorageacc1"
         spec:
           forProvider:
             accountReplicationType: LRS
             accountTier: Standard
             location: "West US 3"
-            resourceGroupName: "none"
+            resourceGroupName: "torg-rg1"
+            tags:
+              name: "torg"
         name: storageAccount
-        patches:
-          - fromFieldPath: spec.other
-            toFieldPath: spec.forProvider.resourceGroupName
-          - fromFieldPath: spec.placement
-            toFieldPath: spec.forProvider.location
-          - fromFieldPath: spec.id
-            toFieldPath: metadata.name
-          - fromFieldPath: spec.id
-            toFieldPath: spec.forProvider.tags.Name
+        #patches:
+        #  - fromFieldPath: spec.other
+        #    toFieldPath: spec.forProvider.resourceGroupName
+        #  - fromFieldPath: spec.placement
+        #    toFieldPath: spec.forProvider.location
+        #  - fromFieldPath: spec.id
+        #    toFieldPath: metadata.name
+        #  - fromFieldPath: spec.id
+        #    toFieldPath: spec.forProvider.tags.Name
     #- base:
     #    apiVersion: storage.azure.upbound.io/v1beta1
     #    kind: Blob
