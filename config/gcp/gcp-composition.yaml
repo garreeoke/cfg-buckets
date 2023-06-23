@@ -1,0 +1,40 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: google.cloudbuckets.cfg.upbound.io
+  labels:
+    cloud: google
+spec:
+  writeConnectionSecretsToNamespace: default
+  compositeTypeRef:
+    apiVersion: cfg.upbound.io/v1alpha1
+    kind: XCloudBucket
+  resources:
+    - base:
+        apiVersion: storage.gcp.upbound.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            storageClass: STANDARD
+      name: storageBucket
+      patches:
+        - fromFieldPath: spec.placement
+          toFieldPath: spec.forProvider.location
+        - fromFieldPath: spec.id
+          toFieldPath: metadata.name
+        - fromFieldPath: spec.id
+          toFieldPath: spec.forProvider.labels.Name
+    - base:
+        apiVersion: storage.gcp.upbound.io/v1beta1
+        kind: BucketAccesscontrol
+        spec:
+          forProvider:
+            role: READER
+      name: storageBucketACL
+      patches:
+        - fromFieldPath: spec.id
+          toFieldPath: spec.forProvider.bucket
+        - fromFieldPath: spec.other
+          toFieldPath: spec.forProvider.entity
+        - fromFieldPath: spec.id
+          toFieldPath: metadata.name

@@ -1,0 +1,12 @@
+apiVersion: cfg.upbound.io/v1alpha1
+kind: CloudBucket
+metadata:
+  name: cfg-buckets-gcpsb-torg
+  namespace: default
+spec:
+  id: cfg-buckets-gcpsb-torg
+  placement: "US"
+  other: upbound.io
+  compositionSelector:
+    matchLabels:
+      cloud: google
